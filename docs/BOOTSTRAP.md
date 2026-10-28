@@ -1,6 +1,6 @@
 # Flutter scaffold status
 
-The repository now includes the first application-level foundation slice: a Dart entry point, Riverpod preferences state, a go_router route, a monochrome theme/token layer, hand-maintained English/Arabic localization, a foundation showcase screen, widget tests, and a GitHub Actions quality workflow.
+The repository now includes the first application-level foundation slice: a Dart entry point, Riverpod preferences state, a go_router route, a monochrome theme/token layer, reusable AppPage/AppCard/SectionHeader components, hand-maintained English/Arabic localization, a foundation showcase screen, widget tests, and a GitHub Actions quality workflow.
 
 ## Toolchain baseline
 
