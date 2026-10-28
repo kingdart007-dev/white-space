@@ -12,7 +12,7 @@ void main() {
     expect(find.text('THE FLUTTER FOUNDATION'), findsOneWidget);
   });
 
-  testWidgets('language control switches the screen to Arabic', (tester) async {
+  testWidgets('language control switches to Arabic and RTL', (tester) async {
     await tester.pumpWidget(const ProviderScope(child: WhiteSpaceApp()));
 
     await tester.tap(find.byTooltip('Language'));
@@ -20,6 +20,10 @@ void main() {
 
     expect(find.text('وايت سبيس'), findsOneWidget);
     expect(find.text('مساحة للتفكير بوضوح.'), findsOneWidget);
+    expect(
+      Directionality.of(tester.element(find.text('مساحة للتفكير بوضوح.'))),
+      TextDirection.rtl,
+    );
   });
 
   testWidgets('theme selection can be changed', (tester) async {
@@ -30,5 +34,12 @@ void main() {
 
     final materialApp = tester.widget<MaterialApp>(find.byType(MaterialApp));
     expect(materialApp.themeMode, ThemeMode.dark);
+  });
+
+  testWidgets('system theme is the initial theme preference', (tester) async {
+    await tester.pumpWidget(const ProviderScope(child: WhiteSpaceApp()));
+
+    final materialApp = tester.widget<MaterialApp>(find.byType(MaterialApp));
+    expect(materialApp.themeMode, ThemeMode.system);
   });
 }
