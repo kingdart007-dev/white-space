@@ -3,6 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/app_preferences.dart';
 import '../../../core/design_system/app_theme.dart';
+import '../../../core/design_system/components/app_card.dart';
+import '../../../core/design_system/components/app_page.dart';
+import '../../../core/design_system/components/section_header.dart';
 import '../../../core/localization/app_localizations.dart';
 
 class FoundationHomePage extends ConsumerWidget {
@@ -30,19 +33,13 @@ class FoundationHomePage extends ConsumerWidget {
           const SizedBox(width: AppSpacing.x2),
         ],
       ),
-      body: SafeArea(
-        child: Align(
-          alignment: Alignment.topCenter,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 640),
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(
-                AppSpacing.x6,
-                AppSpacing.x4,
-                AppSpacing.x6,
-                AppSpacing.x12,
-              ),
-              children: [
+      body: AppPage(
+        child: ListView(
+          padding: const EdgeInsets.only(
+            top: AppSpacing.x4,
+            bottom: AppSpacing.x12,
+          ),
+          children: [
                 Text(
                   strings.eyebrow,
                   style: theme.textTheme.labelSmall?.copyWith(
@@ -62,7 +59,7 @@ class FoundationHomePage extends ConsumerWidget {
                   ),
                 ),
                 const SizedBox(height: AppSpacing.x8),
-                Text(strings.principles, style: theme.textTheme.titleLarge),
+                SectionHeader(title: strings.principles),
                 const SizedBox(height: AppSpacing.x4),
                 _PrincipleCard(
                   icon: Icons.space_dashboard_outlined,
@@ -114,10 +111,7 @@ class FoundationHomePage extends ConsumerWidget {
                     style: theme.textTheme.bodySmall,
                   ),
                 ),
-              ],
-            ),
-          ),
-        ),
+          ],
       ),
     );
   }
@@ -138,10 +132,8 @@ class _PrincipleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(AppSpacing.x4),
-        child: Row(
+    return AppCard(
+      child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
