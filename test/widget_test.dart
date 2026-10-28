@@ -61,6 +61,7 @@ void main() {
     notifier.setLocale(const Locale('ar'));
     notifier.setThemeMode(ThemeMode.dark);
     await Future<void>.delayed(Duration.zero);
+    await storage.reload();
     firstContainer.dispose();
 
     final secondContainer = ProviderContainer(
