@@ -29,6 +29,7 @@ void main() {
   testWidgets('theme selection can be changed', (tester) async {
     await tester.pumpWidget(const ProviderScope(child: WhiteSpaceApp()));
 
+    await tester.ensureVisible(find.text('Dark'));
     await tester.tap(find.text('Dark'));
     await tester.pumpAndSettle();
 
