@@ -48,6 +48,7 @@ void main() {
     final materialApp = tester.widget<MaterialApp>(find.byType(MaterialApp));
     expect(materialApp.themeMode, ThemeMode.system);
   });
+
   test('preference updates preserve unrelated settings', () {
     final container = ProviderContainer();
     addTearDown(container.dispose);
@@ -56,11 +57,16 @@ void main() {
     notifier.setLocale(const Locale('ar'));
     notifier.setThemeMode(ThemeMode.dark);
 
-    expect(container.read(appPreferencesProvider).locale, const Locale('ar'));
-    expect(container.read(appPreferencesProvider).themeMode, ThemeMode.dark);
+    expect(
+      container.read(appPreferencesProvider).locale,
+      const Locale('ar'),
+    );
+    expect(
+      container.read(appPreferencesProvider).themeMode,
+      ThemeMode.dark,
+    );
 
     notifier.setLocale(const Locale('en'));
     expect(container.read(appPreferencesProvider).themeMode, ThemeMode.dark);
   });
-
 }
