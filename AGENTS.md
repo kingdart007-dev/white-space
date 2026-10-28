@@ -26,4 +26,4 @@ This repository's binding engineering and product baseline is `FOUNDATION.md`. R
 
 ## Repository-specific note
 
-This repository currently defines a foundation specification; it is not necessarily a runnable Flutter application. Inspect for an actual `pubspec.yaml` and app source before running Flutter commands or adding Flutter CI. Do not add app-specific workflows that fail because application code does not yet exist. Documentation checks should be proportionate and should not create unnecessary dependency or maintenance burden.
+This repository contains a foundation specification and an early Flutter source scaffold. Inspect the current files and toolchain before running Flutter commands or adding CI. The native Android/iOS runner folders and resolved dependency lockfile may still be absent; do not claim device builds or tests have passed without actually running them. Keep CI proportionate and avoid workflows that fail solely because native platform scaffolding has not yet been generated.
