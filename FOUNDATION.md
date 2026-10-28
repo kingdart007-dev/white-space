@@ -64,7 +64,7 @@ lib/
   app/                 # app composition, router, lifecycle integration
   core/
     design_system/     # tokens, themes, shared components
-    localization/      # locale setup and generated-by-framework assets only
+    localization/      # locale setup and hand-maintained localization resources; no generated source
     errors/            # shared error types and presentation mapping
     utilities/         # genuinely shared small utilities
   features/
