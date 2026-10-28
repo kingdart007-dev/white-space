@@ -30,11 +30,11 @@ void main() {
   testWidgets('theme selection can be changed', (tester) async {
     await tester.pumpWidget(const ProviderScope(child: WhiteSpaceApp()));
 
-    await tester.dragUntilVisible(
-      find.text('Dark'),
-      find.byType(ListView),
-      const Offset(0, -300),
-    );
+    await tester.drag(find.byType(ListView), const Offset(0, -600));
+    await tester.pumpAndSettle();
+    await tester.drag(find.byType(ListView), const Offset(0, -600));
+    await tester.pumpAndSettle();
+    expect(find.text('Dark'), findsOneWidget);
     await tester.tap(find.text('Dark'));
     await tester.pumpAndSettle();
 
