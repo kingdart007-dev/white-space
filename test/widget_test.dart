@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:white_space/app/app_preferences.dart';
 import 'package:white_space/app/white_space_app.dart';
 
@@ -47,6 +48,34 @@ void main() {
 
     final materialApp = tester.widget<MaterialApp>(find.byType(MaterialApp));
     expect(materialApp.themeMode, ThemeMode.system);
+  });
+
+  test('theme and locale preferences survive provider recreation', () async {
+    SharedPreferences.setMockInitialValues({});
+    final storage = await SharedPreferences.getInstance();
+    final firstContainer = ProviderContainer(
+      overrides: [sharedPreferencesProvider.overrideWithValue(storage)],
+    );
+    final notifier = firstContainer.read(appPreferencesProvider.notifier);
+
+    notifier.setLocale(const Locale('ar'));
+    notifier.setThemeMode(ThemeMode.dark);
+    await Future<void>.delayed(Duration.zero);
+    firstContainer.dispose();
+
+    final secondContainer = ProviderContainer(
+      overrides: [sharedPreferencesProvider.overrideWithValue(storage)],
+    );
+    addTearDown(secondContainer.dispose);
+
+    expect(
+      secondContainer.read(appPreferencesProvider).locale,
+      const Locale('ar'),
+    );
+    expect(
+      secondContainer.read(appPreferencesProvider).themeMode,
+      ThemeMode.dark,
+    );
   });
 
   test('preference updates preserve unrelated settings', () {
