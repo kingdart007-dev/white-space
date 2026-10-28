@@ -63,10 +63,9 @@ abstract final class AppTheme {
       canvasColor: canvas,
       dividerColor: border,
       splashFactory: InkSparkle.splashFactory,
-      textTheme: Typography.material2021().black.apply(
-            bodyColor: text,
-            displayColor: text,
-          ).copyWith(
+      textTheme: Typography.material2021().black
+          .apply(bodyColor: text, displayColor: text)
+          .copyWith(
             bodyMedium: TextStyle(fontSize: 14, height: 1.5, color: text),
             bodySmall: TextStyle(fontSize: 12, height: 1.45, color: muted),
             titleMedium: TextStyle(
