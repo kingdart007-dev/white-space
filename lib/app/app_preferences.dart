@@ -34,5 +34,5 @@ class AppPreferencesNotifier extends Notifier<AppPreferences> {
 
 final appPreferencesProvider =
     NotifierProvider<AppPreferencesNotifier, AppPreferences>(
-  AppPreferencesNotifier.new,
-);
+      AppPreferencesNotifier.new,
+    );
