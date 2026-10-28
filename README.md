@@ -21,9 +21,9 @@ A premium-minimal Flutter foundation for maintainable Android and iOS apps.
 
 ## Current implementation
 
-The initial Flutter source scaffold is available on the feature branch. It includes the app entry point, a single go_router route, Riverpod-managed in-memory theme/language preferences, a monochrome theme, manual English/Arabic strings, reusable AppPage/AppCard/SectionHeader components, a foundation showcase screen, widget tests, and a GitHub Actions workflow for formatting, analysis, and tests. The workflow must run in GitHub before its status can be reported as passing.
+The initial Flutter source scaffold is available on the feature branch. It includes the app entry point, a single go_router route, Riverpod-managed theme/language preferences persisted with shared_preferences, a monochrome theme, manual English/Arabic strings, reusable AppPage/AppCard/SectionHeader components, a foundation showcase screen, widget tests, and a GitHub Actions workflow for formatting, analysis, and tests. The workflow status must be checked on GitHub for each relevant commit.
 
-This is an early foundation slice, not a finished product. Preferences are not persisted yet. Native Android/iOS runner folders and a resolved dependency lockfile have not yet been generated and verified. Do not treat builds or tests as passing until they are actually run with a compatible Flutter SDK.
+This is an early foundation slice, not a finished product. Native Android/iOS runner folders and a resolved dependency lockfile have not yet been generated and committed. Do not treat platform builds as passing until they are run with compatible Android and iOS toolchains.
 
 ## Working rule
 
