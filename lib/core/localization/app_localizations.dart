@@ -7,17 +7,17 @@ class AppLocalizations {
 
   final Locale locale;
 
-  static const supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('ar'),
-  ];
+  static const supportedLocales = <Locale>[Locale('en'), Locale('ar')];
 
   static AppLocalizations of(BuildContext context) {
     final result = Localizations.of<AppLocalizations>(
       context,
       AppLocalizations,
     );
-    assert(result != null, 'AppLocalizations was not found in the widget tree.');
+    assert(
+      result != null,
+      'AppLocalizations was not found in the widget tree.',
+    );
     return result!;
   }
 
@@ -28,7 +28,8 @@ class AppLocalizations {
 
   String get appName => isArabic ? 'وايت سبيس' : 'White Space';
   String get eyebrow => isArabic ? 'أساس Flutter' : 'THE FLUTTER FOUNDATION';
-  String get headline => isArabic ? 'مساحة للتفكير بوضوح.' : 'Room to think clearly.';
+  String get headline =>
+      isArabic ? 'مساحة للتفكير بوضوح.' : 'Room to think clearly.';
   String get intro => isArabic
       ? 'أساس هادئ ومتقن لبناء تطبيقات موبايل سهلة الاستخدام وقابلة للصيانة.'
       : 'A calm, considered starting point for mobile apps that feel clear and stay maintainable.';
@@ -37,11 +38,13 @@ class AppLocalizations {
   String get principleDesignDetail => isArabic
       ? 'ألوان محايدة ومساحات مريحة وتسلسل بصري واضح.'
       : 'Neutral tones, generous space, and a clear visual hierarchy.';
-  String get principleArchitecture => isArabic ? 'معمارية عملية' : 'Pragmatic architecture';
+  String get principleArchitecture =>
+      isArabic ? 'معمارية عملية' : 'Pragmatic architecture';
   String get principleArchitectureDetail => isArabic
       ? 'تقسيم حسب الميزة مع Riverpod و go_router.'
       : 'Feature-first structure with Riverpod and go_router.';
-  String get principleAccessible => isArabic ? 'متاح للجميع' : 'Accessible by default';
+  String get principleAccessible =>
+      isArabic ? 'متاح للجميع' : 'Accessible by default';
   String get principleAccessibleDetail => isArabic
       ? 'دعم العربية والإنجليزية والثيمات المختلفة.'
       : 'Arabic and English, with flexible themes and layouts.';
@@ -63,8 +66,8 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) => AppLocalizations.supportedLocales.any(
-        (supported) => supported.languageCode == locale.languageCode,
-      );
+    (supported) => supported.languageCode == locale.languageCode,
+  );
 
   @override
   Future<AppLocalizations> load(Locale locale) =>
