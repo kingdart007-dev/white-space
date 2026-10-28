@@ -21,10 +21,7 @@ class AppCard extends StatelessWidget {
       container: semanticLabel != null,
       label: semanticLabel,
       child: Card(
-        child: Padding(
-          padding: padding,
-          child: child,
-        ),
+        child: Padding(padding: padding, child: child),
       ),
     );
   }
